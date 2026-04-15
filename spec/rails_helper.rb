@@ -7,6 +7,7 @@ require 'shoulda/matchers'
 require 'factory_bot_rails'
 require 'database_cleaner/active_record'
 require 'timecop'
+require 'faker'
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods

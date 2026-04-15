@@ -1,0 +1,30 @@
+# Ruby / Bundler
+/vendor/bundle
+
+# Environment variables
+.env
+.env.*
+
+# Database
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Node (if added later)
+/node_modules
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Logs (extra safety)
+*.log
+
+# Coverage reports
+/coverage
+
+# Byebug history
+.byebug_history

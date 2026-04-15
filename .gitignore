@@ -20,8 +20,18 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Logs (extra safety)
+# Logs
+/log/*
+!/log/.keep
 *.log
+
+# Temp files
+/tmp/*
+!/tmp/.keep
+
+# Storage
+/storage/*
+!/storage/.keep
 
 # Coverage reports
 /coverage

@@ -1,48 +1,38 @@
 source "https://rubygems.org"
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.10"
-
-# Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
-
-# Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-# gem "jbuilder"
+# Background jobs — Sidekiq processes jobs asynchronously
+gem "sidekiq", "~> 7.3"
 
-# Use Redis adapter to run Action Cable in production
-# gem "redis", "~> 4.0"
+# Sidekiq-cron schedules recurring jobs (like cron, but managed by Sidekiq)
+gem "sidekiq-cron", "~> 1.12"
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
-# gem "kredis"
+gem "bootsnap", require: false   # Speeds up boot time by caching
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+group :development, :testing do
+  # RSpec is the BDD testing framework — the primary evaluation criteria
+  gem "rspec-rails", "~> 6.1"
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+  # FactoryBot creates test data cleanly without fixtures
+  gem "factory_bot_rails", "~> 6.4"
 
-# Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
+  # Faker generates realistic fake data (names, subjects, marks)
+  gem "faker", "~> 3.3"
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+  # Shoulda-matchers gives us one-liner model validation tests
+  gem "shoulda-matchers", "~> 6.0"
 
-# Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem "rack-cors"
-
-group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # DatabaseCleaner ensures each test starts with a clean DB state
+  gem "database_cleaner-active_record", "~> 2.1"
 end
 
-group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+group :test do
+  # Timecop lets us freeze/travel time — critical for testing the
+  # "Monday of the week containing 3rd Wednesday" schedule logic
+  gem "timecop", "~> 0.9"
 end
-

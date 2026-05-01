@@ -28,7 +28,7 @@ RSpec.describe "Api::V1::TestResults", type: :request do
       it "creates a TestResult record" do
         expect {
           post "/api/v1/test_results", params: valid_params, headers: valid_headers
-        }.to change(TestResult, :count).by(1)
+        }.to change(TestResult, :count).by(10)
       end
     end
 

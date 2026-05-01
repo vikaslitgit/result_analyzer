@@ -15,7 +15,7 @@ RSpec.describe TestResult, type: :model do
     it "rejects marks above 100" do
       result = build(:test_result, marks: 101)
       expect(result).not_to be_valid
-      expect(result.errors[:marks]).to include("must be less than or equal to 100")//
+      expect(result.errors[:marks]).to include("must be less than or equal to 100")
     end
 
     it "rejects negative marks" do
